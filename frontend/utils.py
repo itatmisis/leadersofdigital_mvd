@@ -68,8 +68,8 @@ def write_odt(text: str) -> BytesIO:
     return target_stream
 
 
-def convert_text(gender: str, text: str) -> str:
-    converted_text = conv1to3(gender, text)
+def convert_text(text: str, gender=None) -> str:
+    converted_text = conv1to3(text, gender)
     return converted_text
 
 

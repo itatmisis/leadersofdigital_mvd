@@ -343,7 +343,7 @@ def conv_with_gender(text, gender):
     return text
 
 
-def conv1to3(text, gender):
+def conv1to3(text, gender=None):
     """Конвертирует текст в повествование от 3 лица с учетом пола человека
          gender - male/female
     """
