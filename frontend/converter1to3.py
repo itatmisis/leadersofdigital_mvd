@@ -327,16 +327,17 @@ def verbs_to3(text):
 
 
 def conv_with_gender(text, gender):
-    change_words = change_words_women_p if gender == 'femn' else change_words_men_p
+    change_words_p = change_words_women_p if gender == 'femn' else change_words_men_p
+    change_words = change_words_women if gender == 'femn' else change_words_men
 
     for ch in punctuation:
         text = conwert(ch, text)
         text = verbs_to3(text)
         for pre in pretext:
-            for key in change_words:
-                text = text.replace(key.format(pre, ch), change_words[key].format(pre, ch))
+            for key in change_words_p:
+                text = text.replace(key.format(pre, ch), change_words_p[key].format(pre, ch))
 
-        for dic in change_words_women:
+        for dic in change_words:
             for key in dic:
                 text = text.replace(key.format(ch), dic[key].format(ch))
 
