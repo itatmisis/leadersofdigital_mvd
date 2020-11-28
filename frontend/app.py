@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request, send_file, make_response
 from flaskwebgui import FlaskUI
 
+import os
+import json
+import sys
+
+
 from utils import open_image, read_image, write_docx, read_docx, open_docx, save_docx, convert_text, open_odt, write_odt
 
 app = Flask(__name__)
@@ -24,7 +29,23 @@ def upload_file():
         print("okay")
         return send_file(document, as_attachment=True, attachment_filename="report.docx")
     elif mimetype == "audio/mpeg" or mimetype == "audio/wav":
-        pass
+        f.filename = "sound.wav"
+        f.save(f.filename)
+        stream = os.popen('python3 test_ffmpeg.py ' + f.filename)
+        output = stream.read()
+        print(output)
+        text = ''
+        with open('res.json') as json_file:
+            data = json.load(json_file)
+            text = data['text']
+            print(data['text'])
+        extracted_text = text
+        processed_text = convert_text(extracted_text)
+        print(extracted_text + ';' + processed_text)
+        response = make_response(extracted_text + ';' + processed_text, 200)
+        response.mimetype = "text/plain"
+        return response
+
     elif mimetype == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
         document = open_docx(f)
         extracted_text = read_docx(document)
@@ -47,7 +68,6 @@ def submit():
     processed_text = convert_text(extracted_text)
     response = make_response(processed_text, 200)
     response.mimetype = "text/plain"
-    print(response)
     return response
 
 

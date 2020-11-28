@@ -1,3 +1,4 @@
+
 var GLOBAL_FLAG = 0
 var FILE_STATUS = 0
 var REFRESHMENT = 0
@@ -27,11 +28,11 @@ function handlerFunction(stream) {
     rec.ondataavailable = e => {
         audioChunks.push(e.data);
         if (rec.state == "inactive") {
-            let blob = new Blob(audioChunks, {type: 'audio/mpeg-3'});
-            saveFile("Example.mp3", 'audio/mpeg-3', blob);
+            let blob = new Blob(audioChunks, {type: 'audio/wav'});
+            saveFile("Example.mp3", 'audio/wav', blob);
 
             let formData = new FormData();
-            formData.append("fname", "record.mp3");
+            formData.append("fname", "record.wav");
             formData.append("file", blob);
             let url = '/upload'
             fetch(url, {
@@ -40,11 +41,15 @@ function handlerFunction(stream) {
             })
                 .then((response) => {
                     return response;
+                }).then((response) => {
+                    return response.text()
                 }).then((data) => {
-
-            })
-                .catch(() => {
-                })
+                    alert(data)
+                    let res = data.split(";");
+                    alert(res[0])
+                    document.getElementsByTagName("textarea")[0].value = res[0]
+                    document.getElementsByTagName("textarea")[1].value = res[1]
+            }).catch(() => {})
 
         }
     }
@@ -58,7 +63,7 @@ function checkStatus() {
         let file = document.getElementById("image-file").files[0];
         let formData = new FormData();
         formData.append("file", file);
-        // alert();
+        alert();
         let url = '/upload'
         fetch(url, {
             method: 'POST',
@@ -66,12 +71,15 @@ function checkStatus() {
         })
             .then((response) => {
                 return response
-            }).then((data) => {
-            setTimeout(function () {
-            }, 1500);
-        })
-            .catch(() => {
-            })
+            }).then((response) => {
+                    return response.text()
+                }).then((data) => {
+                    alert(data)
+                    let res = data.split(";");
+                    alert(res[0])
+                    document.getElementsByTagName("textarea")[0].value = res[0]
+                    document.getElementsByTagName("textarea")[1].value = res[1]
+            }).catch(() => {})
         REFRESHMENT = 0;
     }
 }
@@ -201,12 +209,11 @@ window.onload = function () {
         })
             .then((response) => {
                 return response
-            }).then((data) => {
-            setTimeout(function () {
-            }, 1500);
-        })
-            .catch(() => {
-            })
+            }).then((response) => {
+                    return response.text()
+                }).then((data) => {
+                    document.getElementsByTagName("textarea")[1].value = data
+            }).catch(() => {})
     }
 
     function handleFiles(files) {

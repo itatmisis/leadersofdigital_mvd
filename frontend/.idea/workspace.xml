@@ -35,7 +35,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606586187392</updated>
       <workItem from="1606586189201" duration="65000" />
-      <workItem from="1606586255034" duration="2705000" />
+      <workItem from="1606586255034" duration="10000000" />
     </task>
     <servers />
   </component>
@@ -47,7 +47,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/converter1to3.py</url>
-          <line>350</line>
+          <line>351</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
