@@ -45,7 +45,9 @@ def upload_file():
 def submit():
     extracted_text = request.form["text"]
     processed_text = convert_text(extracted_text)
-    return processed_text
+    response = make_response(processed_text, 200)
+    response.mimetype = "text/plain"
+    return response
 
 
 if __name__ == "__main__":

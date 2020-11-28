@@ -265,10 +265,12 @@ def get_gender(text):
             if is_verb(words[i + 2]):
                 cases.append(words[i + 2])
 
-    genders = [get_gender(case) for case in cases]
+    genders = [get_gender_by_word(case) for case in cases]
     res = [i for i in genders if i]
-
-    return Counter(res).most_common(1)[0][0]
+    if not len(res):
+        return None
+    else:
+        return Counter(res).most_common(1)[0][0]
 
 
 def correct(text, add_before_text=None, add_after_text=None):
@@ -351,4 +353,6 @@ def conv1to3(text, gender=None):
     text = correct(text)
     if gender is None:
         gender = get_gender(text)
+        if gender is None:
+            return text
     return conv_with_gender(text, gender)
