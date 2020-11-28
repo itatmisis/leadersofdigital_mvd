@@ -259,10 +259,10 @@ def get_gender(text):
     words = text.split()
     for i in range(len(text.split())):
         if words[i].lower() == 'я':
-            if is_verb(words[i+1]):
-                cases.append(words[i+1])
-            if is_verb(words[i+2]):
-                cases.append(words[i+2])
+            if is_verb(words[i + 1]):
+                cases.append(words[i + 1])
+            if is_verb(words[i + 2]):
+                cases.append(words[i + 2])
 
     genders = [get_gender(case) for case in cases]
     res = [i for i in genders if i]
@@ -325,28 +325,15 @@ def verbs_to3(text):
     return text
 
 
-def _to_men(text):
-    for ch in punctuation:
-        text = convert(ch, text)
+def conv_with_gender(text, gender):
+    change_words = change_words_women_p if gender == 'female' else change_words_men_p
+
+    for ch in chars:
+        text = conwert(ch, text)
         text = verbs_to3(text)
-        for predlog in pretext:
-            for key in change_words_men_p:
-                text = text.replace(key.format(predlog, ch), change_words_men_p[key].format(predlog, ch))
-
-        for dic in change_words_men:
-            for key in dic:
-                text = text.replace(key.format(ch), dic[key].format(ch))
-
-    return text
-
-
-def _to_women(text):
-    for ch in punctuation:
-        text = convert(ch, text)
-        text = verbs_to3(text)
-        for predlog in pretext:
-            for key in change_words_women_p:
-                text = text.replace(key.format(predlog, ch), change_words_women_p[key].format(predlog, ch))
+        for predlog in predlogs:
+            for key in change_words:
+                text = text.replace(key.format(predlog, ch), change_words[key].format(predlog, ch))
 
         for dic in change_words_women:
             for key in dic:
@@ -356,10 +343,9 @@ def _to_women(text):
 
 
 def conv1to3(text, gender):
-    """Конвертирует текст в повествование от 3 лица с учетом пола человека"""
+    """Конвертирует текст в повествование от 3 лица с учетом пола человека
+         gender - male/female
+    """
 
     text = correct(text)
-    if gender == 'male':
-        return _to_men(text)
-    elif gender == 'female':
-        return _to_women(text)
+    return conv_with_gender(text, gender)
