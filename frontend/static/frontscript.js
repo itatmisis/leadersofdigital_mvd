@@ -150,10 +150,9 @@ window.onload = function () {
                 method: 'POST',
                 body: formData
             }).then((response) => {
-                    return response
+                    return response.text()
                 }).then((data) => {
-                                    alert(data.toString())
-
+                    document.getElementsByTagName("textarea")[1].value = data
             }).catch(() => {})
         } else {
             e.preventDefault()

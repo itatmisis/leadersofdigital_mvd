@@ -291,7 +291,7 @@ textarea::placeholder {
     display: grid;
     align-items: end;
     justify-items: center;
-    grid-template-columns: 2fr 2.2fr 0.2fr 2.2fr 0.8fr;
+    grid-template-columns: minmax(50px, 2fr) 2.2fr 0.2fr 2.2fr 0.8fr;
     z-index: 100501;
     height: 100%;
 }

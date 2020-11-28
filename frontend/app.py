@@ -47,6 +47,7 @@ def submit():
     processed_text = convert_text(extracted_text)
     response = make_response(processed_text, 200)
     response.mimetype = "text/plain"
+    print(response)
     return response
 
 
