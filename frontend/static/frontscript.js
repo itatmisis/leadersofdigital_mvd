@@ -153,6 +153,7 @@ window.onload = function () {
                     return response
                 }).then((data) => {
                                     alert(data.toString())
+
             }).catch(() => {})
         } else {
             e.preventDefault()
