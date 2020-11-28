@@ -1,5 +1,6 @@
-import pymorphy2
 from collections import Counter
+
+import pymorphy2
 
 pretext = [
     ' в ', 'В ', ' без ', 'Без ', ' до ', 'До ', ' из ', 'Из ', ' к ', 'К ',

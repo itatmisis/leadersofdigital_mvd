@@ -5,9 +5,9 @@ import pymorphy2
 import pytesseract
 from PIL import Image
 from docx import Document
+from odf import teletype
 from odf.opendocument import load, OpenDocumentText
 from odf.text import P
-from odf import teletype
 
 from converter1to3 import conv1to3
 

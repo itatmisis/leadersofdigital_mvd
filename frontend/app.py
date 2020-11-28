@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file, make_response
 from flaskwebgui import FlaskUI
 
 from utils import open_image, read_image, write_docx, read_docx, open_docx, save_docx, convert_text, open_odt, write_odt
@@ -44,11 +44,10 @@ def upload_file():
 @app.route('/submit', methods=['POST'])
 def submit():
     extracted_text = request.form["text"]
-    processed_text = convert_text("male", extracted_text)
-    new_document = write_docx(processed_text)
-    stream = save_docx(new_document)
-    print("okay")
-    return send_file(stream, as_attachment=True, attachment_filename="report1to3.docx")
+    processed_text = convert_text(extracted_text)
+    response = make_response(processed_text, 200)
+    response.mimetype = "text/plain"
+    return response
 
 
 if __name__ == "__main__":

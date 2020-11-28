@@ -105,8 +105,8 @@ window.onload = function () {
             REGIME_FLAG = 1;
             $(".req").fadeOut(1000);
             setTimeout(function () {
-            document.getElementsByClassName("req")[0].innerHTML = 'нажмите для обработки фрагмента текста';
-        }, 1000);
+                document.getElementsByClassName("req")[0].innerHTML = 'нажмите для обработки фрагмента текста';
+            }, 1000);
             $(".req").fadeIn(1000);
         }
     });
@@ -133,8 +133,8 @@ window.onload = function () {
 
 
             setTimeout(function () {
-            document.getElementsByClassName("req")[0].innerHTML = 'нажмите на надпись или перетяните файл на экран';
-        }, 1000);
+                document.getElementsByClassName("req")[0].innerHTML = 'нажмите на надпись или перетяните файл на экран';
+            }, 1000);
 
             $(".req").fadeIn(1000);
 
@@ -146,10 +146,12 @@ window.onload = function () {
                 method: 'POST',
                 body: formData
             }).then((response) => {
-                    return response
-                }).then((data) => {
-                    setTimeout(function () {
-                }, 1500);}).catch(() => {})
+                return response
+            }).then((data) => {
+                setTimeout(function () {
+                }, 1500);
+            }).catch(() => {
+            })
         } else {
             e.preventDefault()
             $('#image-file').trigger('click');
