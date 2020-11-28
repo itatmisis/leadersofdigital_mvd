@@ -1,5 +1,4 @@
 from io import BytesIO
-from io import StringIO
 
 import odf
 import pymorphy2
@@ -8,6 +7,7 @@ from PIL import Image
 from docx import Document
 from odf.opendocument import load, OpenDocumentText
 from odf.text import P
+from odf import teletype
 
 from converter1to3 import conv1to3
 
@@ -54,14 +54,14 @@ def save_docx(document: Document) -> BytesIO:
 def open_odt(file) -> str:
     textdoc = load(file)
     allparas = textdoc.getElementsByType(odf.text.P)
-    text = "\n".join([odf.teletype.extractText(par) for par in allparas])
+    text = "\n".join([teletype.extractText(par) for par in allparas])
     return text
 
 
 def write_odt(text: str) -> BytesIO:
     textdoc = OpenDocumentText()
     paragraph_element = P()
-    odf.teletype.addTextToElement(paragraph_element, text)
+    teletype.addTextToElement(paragraph_element, text)
     textdoc.text.addElement(paragraph_element, text)
     target_stream = BytesIO()
     textdoc.write(target_stream)

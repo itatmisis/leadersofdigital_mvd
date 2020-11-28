@@ -328,12 +328,12 @@ def verbs_to3(text):
 def conv_with_gender(text, gender):
     change_words = change_words_women_p if gender == 'female' else change_words_men_p
 
-    for ch in chars:
-        text = conwert(ch, text)
+    for ch in punctuation:
+        text = convert(ch, text)
         text = verbs_to3(text)
-        for predlog in predlogs:
+        for pre in pretext:
             for key in change_words:
-                text = text.replace(key.format(predlog, ch), change_words[key].format(predlog, ch))
+                text = text.replace(key.format(pre, ch), change_words[key].format(pre, ch))
 
         for dic in change_words_women:
             for key in dic:
@@ -348,4 +348,6 @@ def conv1to3(text, gender):
     """
 
     text = correct(text)
+    if gender is None:
+        gender = get_gender(text)
     return conv_with_gender(text, gender)
