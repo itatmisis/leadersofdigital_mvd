@@ -1,0 +1,297 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Bachnschrift";
+    font-variation-settings: "wdth" 75;
+    src: url("fonts/bahnschrift.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-variation-settings: "wdth" 75;
+    src: url("fonts/Roboto-Bold.ttf");
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: black;
+    height: 100%;
+}
+
+
+#dropzone {
+    top: 0;
+    z-index: 400;
+    display: grid;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("");
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#particles-js {
+    right: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url("");
+}
+
+.team {
+    font-family: Bachnschrift;
+    font-variation-settings: "wght" 950;
+    position: absolute;
+    color: #f1f1f1;
+}
+
+.content {
+    font-family: Bachnschrift;
+    font-variation-settings: "wght" 150;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    color: #f1f1f1;
+    display: inline-grid;
+    z-index: 10;
+}
+
+.right {
+    z-index: 10;
+    position: absolute;
+    color: #f1f1f1;
+    font-family: Bachnschrift;
+    font-size: 36pt;
+    width: 17%;
+    min-width: 320px;
+    font-variation-settings: "wght" 850;
+    padding-right: 20px;
+    background: rgba(0, 0, 0, 0.65);
+    padding-top: 10px;
+    left: 20px;
+    bottom: 20px;
+}
+
+.description {
+    font-variation-settings: "wght" 150;
+    margin-top: 30px;
+    /* text-align:justify; */
+    font-size: 15.2pt;
+}
+
+.left {
+    font-family: Bachnschrift;
+    font-variation-settings: "wght" 150;
+    background: rgba(0, 0, 0, 0.55);
+    color: #f1f1f1;
+    position: absolute;
+    left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    font-size: 32pt;
+    margin-bottom: 40px;
+}
+
+.team {
+    font-family: Bachnschrift;
+    font-variation-settings: "wght" 150;
+    background: rgba(0, 0, 0, 0.55);
+    color: #f1f1f1;
+    position: absolute;
+    right: 85px;
+    top: 20px;
+    padding-left: 20px;
+    font-size: 25pt;
+}
+
+.github {
+    z-index: 10050010;
+    background: url("https://abb1991.github.io/images/thumbnails/github-logo.svg") no-repeat;
+    background-size: 40px 40px;
+    background-position: right top;
+    position: absolute;
+    right: 20px;
+    top: 17px;
+    height: 8%;
+    width: 8%;
+}
+
+.f {
+    padding: 8px;
+}
+
+.task {
+    padding-left: 20px;
+    font-family: Roboto;
+    margin-top: 10px;
+    overflow: auto;
+    color: black;
+    background-color: white;
+    font-size: 23.3pt;
+}
+
+#dropzone {
+    top: 0;
+    z-index: 400;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("");
+}
+
+.visible {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 40% 35% 25%;
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 90% 10%;
+    justify-content: center;
+}
+
+#testimg {
+    justify-self: center;
+    width: 1120px;
+}
+
+.req {
+    cursor: pointer;
+    z-index: 1000;
+    color: white;
+    align-self: center;
+    padding-top: 1%;
+    font-size: 18pt;
+    justify-self: center;
+    font-family: Bachnschrift;
+    font-variation-settings: "wght" 150;
+    animation-name: floating;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.req span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.req span:after {
+    content: "↲";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.req:hover span {
+    padding-right: 25px;
+}
+
+.req:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#record {
+
+    cursor: pointer;
+}
+
+.record_title {
+    font-family: Bachnschrift;
+    font-variation-settings: "wght" 150;
+    background: rgba(0, 0, 0, 0.55);
+    color: #f1f1f1;
+    position: absolute;
+    right: 70px;
+    bottom: 20px;
+    padding-left: 20px;
+    font-size: 25pt;
+}
+
+.red_circle {
+    background-color: red; /* Green */
+    border-width: medium;
+    border-color: black;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    max-width: 10%;
+    max-height: 15%;
+    border-radius: 50%;
+    bottom: 25px;
+    right: 25px;
+    position: absolute;
+}
+
+
+.main_field {
+    height: 100%;
+    display: grid;
+    grid-auto-rows: 3fr 1fr;
+}
+
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+}
+
+
+textarea {
+    z-index: 100501;
+    height: 75%;
+    width: 100%;
+	border: 4px solid white;
+    background: rgba(0, 0, 0, 0.3);
+    font-family: Bachnschrift !important;
+    color: white;
+}
+
+
+textarea::placeholder {
+    color: whitesmoke;
+    display: grid;
+    padding: 10px;
+    opacity: 0.5;
+    font-family: Bachnschrift;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+.textareas {
+    display: grid;
+    align-items: end;
+    justify-items: center;
+    grid-template-columns: minmax(400px, 2fr) 2.2fr 0.2fr 2.2fr 0.8fr;
+    z-index: 100501;
+    height: 100%;
+}

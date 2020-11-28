@@ -1,0 +1,8 @@
+python-docx
+pytesseract
+Pillow
+pymorphy2
+flaskwebgui
+vosk
+odfpy
+flask
