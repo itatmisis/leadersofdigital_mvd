@@ -78,6 +78,10 @@ function checkStatus() {
 
 window.onload = function () {
 
+
+
+
+
     record = document.getElementById("record");
     record_circle = document.getElementsByClassName("red_circle")[0];
     record.onclick = e => {
@@ -105,8 +109,8 @@ window.onload = function () {
             REGIME_FLAG = 1;
             $(".req").fadeOut(1000);
             setTimeout(function () {
-                document.getElementsByClassName("req")[0].innerHTML = 'нажмите для обработки фрагмента текста';
-            }, 1000);
+            document.getElementsByClassName("req")[0].innerHTML = 'нажмите для обработки фрагмента текста';
+        }, 1000);
             $(".req").fadeIn(1000);
         }
     });
@@ -133,25 +137,23 @@ window.onload = function () {
 
 
             setTimeout(function () {
-                document.getElementsByClassName("req")[0].innerHTML = 'нажмите на надпись или перетяните файл на экран';
-            }, 1000);
+            document.getElementsByClassName("req")[0].innerHTML = 'нажмите на надпись или перетяните файл на экран';
+        }, 1000);
 
             $(".req").fadeIn(1000);
 
 
-            let url = '/upload'
+            let url = '/submit'
             let formData = new FormData()
             formData.append('text', document.getElementsByTagName("textarea")[0].value)
             fetch(url, {
                 method: 'POST',
                 body: formData
             }).then((response) => {
-                return response
-            }).then((data) => {
-                setTimeout(function () {
-                }, 1500);
-            }).catch(() => {
-            })
+                    return response
+                }).then((data) => {
+                                    alert(data.toString())
+            }).catch(() => {})
         } else {
             e.preventDefault()
             $('#image-file').trigger('click');
@@ -200,7 +202,6 @@ window.onload = function () {
             .then((response) => {
                 return response
             }).then((data) => {
-
             setTimeout(function () {
             }, 1500);
         })
