@@ -232,17 +232,8 @@ sys_list_words = [['о нём', 'о том'],
                   ['являемся', 'являются']]
 
 
-def is_verb(word):
-    """Определяет, является ли слово глаголом"""
-    morph = pymorphy2.MorphAnalyzer()
-
-    word = morph.parse(word)[0]
-    pos = word.tag.POS
-    return pos in {'INFN', 'VERB'}
-
-
 def get_gender_by_word(word):
-    """Возвращает пол человека по глаголу"""
+    """Возвращает пол человека"""
 
     morph = pymorphy2.MorphAnalyzer()
     parsed_word = morph.parse(word)[0]
@@ -250,8 +241,15 @@ def get_gender_by_word(word):
     return parsed_word.tag.gender
 
 
+def is_verb(word):
+    morph = pymorphy2.MorphAnalyzer()
+
+    word = morph.parse(word)[0]
+    pos = word.tag.POS
+    return pos in {'INFN', 'VERB'}
+
+
 def get_gender(text):
-    """Возвращает пол человека по тексту"""
     text = correct(text)
     for i in punctuation[1:]:
         text = text.replace('{} '.format(i), ' {} '.format(i))
@@ -267,10 +265,10 @@ def get_gender(text):
 
     genders = [get_gender_by_word(case) for case in cases]
     res = [i for i in genders if i]
-    if not len(res):
-        return None
-    else:
+    if len(res):
         return Counter(res).most_common(1)[0][0]
+    else:
+        return None
 
 
 def correct(text, add_before_text=None, add_after_text=None):
@@ -298,7 +296,7 @@ def correct(text, add_before_text=None, add_after_text=None):
     return text
 
 
-def convert(ch, text):
+def conwert(ch, text):
     """метод отыскивающий словосочетания с символом ch, в тексте и меняющий на 3 лицо"""
 
     for word in sys_list_words:
@@ -309,13 +307,13 @@ def convert(ch, text):
 
 
 def verbs_to3(text):
-    """Склоняет глагол в 3 лицо"""
+    """Склоняет глаголы в 3 лицо"""
+    morph = pymorphy2.MorphAnalyzer()
 
     for i in punctuation[1:]:
         text = text.replace('{} '.format(i), ' {} '.format(i))
 
     for word in text.split():
-        morph = pymorphy2.MorphAnalyzer()
         word = morph.parse(word)[0]
         pos = word.tag.POS
         if pos in {'INFN', 'VERB'}:
@@ -329,10 +327,10 @@ def verbs_to3(text):
 
 
 def conv_with_gender(text, gender):
-    change_words = change_words_women_p if gender == 'female' else change_words_men_p
+    change_words = change_words_women_p if gender == 'femn' else change_words_men_p
 
     for ch in punctuation:
-        text = convert(ch, text)
+        text = conwert(ch, text)
         text = verbs_to3(text)
         for pre in pretext:
             for key in change_words:
@@ -351,8 +349,8 @@ def conv1to3(text, gender=None):
     """
 
     text = correct(text)
-    if gender is None:
+    if not gender:
         gender = get_gender(text)
-        if gender is None:
+        if not gender:
             return text
     return conv_with_gender(text, gender)
