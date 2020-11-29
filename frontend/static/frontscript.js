@@ -47,8 +47,8 @@ function handlerFunction(stream) {
                     alert(data)
                     let res = data.split(";");
                     alert(res[0])
-                    document.getElementsByTagName("textarea")[0].value = res[0]
-                    document.getElementsByTagName("textarea")[1].value = res[1]
+                    document.getElementsByTagName("p")[0].innerHTML = res[0]
+                    document.getElementsByTagName("p")[1].innerHTML = res[1]
             }).catch(() => {})
 
         }
@@ -94,8 +94,8 @@ function checkStatus() {
                         saveFile("Converted_.odt", "application/vnd.oasis.opendocument.text", data);
                     } else {
                         let res = data.split(";");
-                        document.getElementsByTagName("textarea")[0].value = res[0];
-                        document.getElementsByTagName("textarea")[1].value = res[1];
+                        document.getElementsByTagName("p")[0].innerHTML = res[0];
+                        document.getElementsByTagName("p")[1].innerHTML = res[1];
                     }
                     }).catch(() => {})
         REFRESHMENT = 0;
@@ -172,14 +172,14 @@ window.onload = function () {
 
             let url = '/submit'
             let formData = new FormData()
-            formData.append('text', document.getElementsByTagName("textarea")[0].value)
+            formData.append('text', document.getElementsByTagName("p")[0].innerHTML)
             fetch(url, {
                 method: 'POST',
                 body: formData
             }).then((response) => {
                     return response.text()
                 }).then((data) => {
-                    document.getElementsByTagName("textarea")[1].value = data
+                    document.getElementsByTagName("p")[1].innerHTML = data
             }).catch(() => {})
         } else {
             e.preventDefault()
@@ -231,7 +231,7 @@ window.onload = function () {
             }).then((response) => {
                     return response.text()
                 }).then((data) => {
-                    document.getElementsByTagName("textarea")[1].value = data
+                    document.getElementsByTagName("p")[1].innerHTML = data
             }).catch(() => {})
     }
 
