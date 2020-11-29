@@ -46,7 +46,7 @@ function handlerFunction(stream) {
                 }).then((data) => {
 
                     let res = data.split(";");
-                    alert(res[0])
+//                    alert(res[0])
                     document.getElementsByTagName("textarea")[0].value = res[0]
                     document.getElementsByTagName("textarea")[1].value = res[1]
             }).catch(() => {})
@@ -63,7 +63,7 @@ function checkStatus() {
         let file = document.getElementById("image-file").files[0];
         let formData = new FormData();
         formData.append("file", file);
-        alert();
+//        alert();
         let url = '/upload'
         let marker = 0;
         fetch(url, {
@@ -73,7 +73,7 @@ function checkStatus() {
             .then((response) => {
                 return response
             }).then((response) => {
-                    alert(response.headers.get("word"))
+           //         alert(response.headers.get("word"))
                     if (response.headers.get("word") == "yes") {
                         marker = 1;
                         return response.blob();
@@ -86,7 +86,7 @@ function checkStatus() {
                         }
                     }
                 }).then((data) => {
-                    alert(marker)
+         //           alert(marker)
                     if (marker == 1) {
                         saveFile("Converted_.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", data);
                     }
@@ -102,11 +102,21 @@ function checkStatus() {
     }
 }
 
+function highlight(newElem, oldElem){
+  var oldText = oldElem.text(),
+      text = '';
+  newElem.text().split('').forEach(function(val, i){
+    if (val != oldText.charAt(i))
+      text += "<span class='highlight'>"+val+"</span>";
+    else
+      text += val;
+  });
+  newElem.html(text);
+}
+
+
+
 window.onload = function () {
-
-
-
-
 
     record = document.getElementById("record");
     record_circle = document.getElementsByClassName("red_circle")[0];
@@ -143,7 +153,7 @@ window.onload = function () {
 
 
     $("#button-back").click(function () {
-        alert()
+ //       alert()
         $("body").fadeOut(1000);
         setTimeout(function () {
             location.href = "/"
@@ -180,6 +190,7 @@ window.onload = function () {
                 }).then((data) => {
                     document.getElementsByTagName("textarea")[1].value = data
             }).catch(() => {})
+            highlight($(".t_f"), $(".t_s"));
         } else {
             e.preventDefault()
             $('#image-file').trigger('click');

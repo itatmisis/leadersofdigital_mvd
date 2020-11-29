@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05164571-d6a5-4014-aca9-377a2bbbdf67" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/load_module.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res.json" beforeDir="false" afterPath="$PROJECT_DIR$/res.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sound.wav" beforeDir="false" afterPath="$PROJECT_DIR$/sound.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/frontscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/frontscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -36,25 +43,37 @@
       <option name="presentableId" value="Default" />
       <updated>1606586187392</updated>
       <workItem from="1606586189201" duration="65000" />
-      <workItem from="1606586255034" duration="15874000" />
+      <workItem from="1606586255034" duration="16296000" />
+      <workItem from="1606614084595" duration="132000" />
+      <workItem from="1606614292560" duration="3976000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/converter1to3.py</url>
-          <line>351</line>
+          <line>123</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/static/frontscript.js</url>
           <line>54</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
