@@ -53,13 +53,17 @@ def upload_file():
         new_document = write_docx(processed_text)
         stream = save_docx(new_document)
         print("okay")
-        return send_file(stream, as_attachment=True, attachment_filename="report1to3.docx")
+        response = make_response(send_file(stream, as_attachment=True, attachment_filename="report1to3.docx"))
+        response.headers['word'] = 'yes'
+        return response
     elif mimetype == "application/vnd.oasis.opendocument.text":
         extracted_text = open_odt(f)
         processed_text = convert_text(extracted_text)
         stream = write_odt(processed_text)
         print("okay")
-        return send_file(stream, as_attachment=True, attachment_filename="report1to3.odt")
+        response = make_response(send_file(stream, as_attachment=True, attachment_filename="report1to3.odt"))
+        response.headers['word'] = 'no'
+        return response
 
 
 @app.route('/submit', methods=['POST'])
