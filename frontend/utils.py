@@ -65,6 +65,7 @@ def write_odt(text: str) -> BytesIO:
     textdoc.text.addElement(paragraph_element, text)
     target_stream = BytesIO()
     textdoc.write(target_stream)
+    target_stream.seek(0)
     return target_stream
 
 
