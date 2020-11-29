@@ -1,4 +1,3 @@
-
 var GLOBAL_FLAG = 0
 var FILE_STATUS = 0
 var REFRESHMENT = 0
@@ -106,9 +105,6 @@ function checkStatus() {
 window.onload = function () {
 
 
-
-
-
     record = document.getElementById("record");
     record_circle = document.getElementsByClassName("red_circle")[0];
     record.onclick = e => {
@@ -136,8 +132,8 @@ window.onload = function () {
             REGIME_FLAG = 1;
             $(".req").fadeOut(1000);
             setTimeout(function () {
-            document.getElementsByClassName("req")[0].innerHTML = 'нажмите для обработки фрагмента текста';
-        }, 1000);
+                document.getElementsByClassName("req")[0].innerHTML = 'нажмите для обработки фрагмента текста';
+            }, 1000);
             $(".req").fadeIn(1000);
         }
     });
@@ -164,8 +160,8 @@ window.onload = function () {
 
 
             setTimeout(function () {
-            document.getElementsByClassName("req")[0].innerHTML = 'нажмите на надпись или перетяните файл на экран';
-        }, 1000);
+                document.getElementsByClassName("req")[0].innerHTML = 'нажмите на надпись или перетяните файл на экран';
+            }, 1000);
 
             $(".req").fadeIn(1000);
 
@@ -177,10 +173,18 @@ window.onload = function () {
                 method: 'POST',
                 body: formData
             }).then((response) => {
+<<<<<<< HEAD
                     return response.text()
                 }).then((data) => {
                     document.getElementsByTagName("p")[1].innerHTML = data
             }).catch(() => {})
+=======
+                return response.text()
+            }).then((data) => {
+                document.getElementsByTagName("textarea")[1].value = data
+            }).catch(() => {
+            })
+>>>>>>> 7d0074dbae1dff61425df0f100497595895b64cf
         } else {
             e.preventDefault()
             $('#image-file').trigger('click');
@@ -229,10 +233,18 @@ window.onload = function () {
             .then((response) => {
                 return response
             }).then((response) => {
+<<<<<<< HEAD
                     return response.text()
                 }).then((data) => {
                     document.getElementsByTagName("p")[1].innerHTML = data
             }).catch(() => {})
+=======
+            return response.text()
+        }).then((data) => {
+            document.getElementsByTagName("textarea")[1].value = data
+        }).catch(() => {
+        })
+>>>>>>> 7d0074dbae1dff61425df0f100497595895b64cf
     }
 
     function handleFiles(files) {
