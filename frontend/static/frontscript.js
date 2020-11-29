@@ -173,18 +173,11 @@ window.onload = function () {
                 method: 'POST',
                 body: formData
             }).then((response) => {
-<<<<<<< HEAD
-                    return response.text()
-                }).then((data) => {
-                    document.getElementsByTagName("p")[1].innerHTML = data
-            }).catch(() => {})
-=======
                 return response.text()
             }).then((data) => {
-                document.getElementsByTagName("textarea")[1].value = data
+                document.getElementsByTagName("p")[1].innerHTML = data
             }).catch(() => {
             })
->>>>>>> 7d0074dbae1dff61425df0f100497595895b64cf
         } else {
             e.preventDefault()
             $('#image-file').trigger('click');
@@ -233,18 +226,11 @@ window.onload = function () {
             .then((response) => {
                 return response
             }).then((response) => {
-<<<<<<< HEAD
-                    return response.text()
-                }).then((data) => {
-                    document.getElementsByTagName("p")[1].innerHTML = data
-            }).catch(() => {})
-=======
             return response.text()
         }).then((data) => {
-            document.getElementsByTagName("textarea")[1].value = data
+            document.getElementsByTagName("p")[1].innerHTML = data
         }).catch(() => {
         })
->>>>>>> 7d0074dbae1dff61425df0f100497595895b64cf
     }
 
     function handleFiles(files) {
@@ -258,6 +244,5 @@ window.onload = function () {
         let files = dt.files
         handleFiles(files)
     }
-
 
 };

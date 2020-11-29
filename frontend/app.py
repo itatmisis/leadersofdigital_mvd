@@ -7,7 +7,7 @@ from flaskwebgui import FlaskUI
 from utils import open_image, read_image, write_docx, read_docx, open_docx, save_docx, convert_text, open_odt, write_odt
 
 app = Flask(__name__)
-ui = FlaskUI(app, width=1324, height=728)
+ui = FlaskUI(app, width=1324, height=728, port=7000)
 
 
 def normalize(text):
