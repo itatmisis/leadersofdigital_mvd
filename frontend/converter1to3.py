@@ -1,7 +1,8 @@
 from collections import Counter
-from words import *
 
 import pymorphy2
+
+from words import *
 
 
 def get_gender_by_word(word):

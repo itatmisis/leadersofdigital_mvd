@@ -1,4 +1,3 @@
-
 var GLOBAL_FLAG = 0
 var FILE_STATUS = 0
 var REFRESHMENT = 0
@@ -42,14 +41,15 @@ function handlerFunction(stream) {
                 .then((response) => {
                     return response;
                 }).then((response) => {
-                    return response.text()
-                }).then((data) => {
-                    alert(data)
-                    let res = data.split(";");
-                    alert(res[0])
-                    document.getElementsByTagName("textarea")[0].value = res[0]
-                    document.getElementsByTagName("textarea")[1].value = res[1]
-            }).catch(() => {})
+                return response.text()
+            }).then((data) => {
+                alert(data)
+                let res = data.split(";");
+                alert(res[0])
+                document.getElementsByTagName("textarea")[0].value = res[0]
+                document.getElementsByTagName("textarea")[1].value = res[1]
+            }).catch(() => {
+            })
 
         }
     }
@@ -72,22 +72,20 @@ function checkStatus() {
             .then((response) => {
                 return response
             }).then((response) => {
-                    return response.text()
-                }).then((data) => {
-                    alert(data)
-                    let res = data.split(";");
-                    alert(res[0])
-                    document.getElementsByTagName("textarea")[0].value = res[0]
-                    document.getElementsByTagName("textarea")[1].value = res[1]
-            }).catch(() => {})
+            return response.text()
+        }).then((data) => {
+            alert(data)
+            let res = data.split(";");
+            alert(res[0])
+            document.getElementsByTagName("textarea")[0].value = res[0]
+            document.getElementsByTagName("textarea")[1].value = res[1]
+        }).catch(() => {
+        })
         REFRESHMENT = 0;
     }
 }
 
 window.onload = function () {
-
-
-
 
 
     record = document.getElementById("record");
@@ -117,8 +115,8 @@ window.onload = function () {
             REGIME_FLAG = 1;
             $(".req").fadeOut(1000);
             setTimeout(function () {
-            document.getElementsByClassName("req")[0].innerHTML = 'нажмите для обработки фрагмента текста';
-        }, 1000);
+                document.getElementsByClassName("req")[0].innerHTML = 'нажмите для обработки фрагмента текста';
+            }, 1000);
             $(".req").fadeIn(1000);
         }
     });
@@ -145,8 +143,8 @@ window.onload = function () {
 
 
             setTimeout(function () {
-            document.getElementsByClassName("req")[0].innerHTML = 'нажмите на надпись или перетяните файл на экран';
-        }, 1000);
+                document.getElementsByClassName("req")[0].innerHTML = 'нажмите на надпись или перетяните файл на экран';
+            }, 1000);
 
             $(".req").fadeIn(1000);
 
@@ -158,10 +156,11 @@ window.onload = function () {
                 method: 'POST',
                 body: formData
             }).then((response) => {
-                    return response.text()
-                }).then((data) => {
-                    document.getElementsByTagName("textarea")[1].value = data
-            }).catch(() => {})
+                return response.text()
+            }).then((data) => {
+                document.getElementsByTagName("textarea")[1].value = data
+            }).catch(() => {
+            })
         } else {
             e.preventDefault()
             $('#image-file').trigger('click');
@@ -210,10 +209,11 @@ window.onload = function () {
             .then((response) => {
                 return response
             }).then((response) => {
-                    return response.text()
-                }).then((data) => {
-                    document.getElementsByTagName("textarea")[1].value = data
-            }).catch(() => {})
+            return response.text()
+        }).then((data) => {
+            document.getElementsByTagName("textarea")[1].value = data
+        }).catch(() => {
+        })
     }
 
     function handleFiles(files) {
