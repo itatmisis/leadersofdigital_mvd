@@ -1,10 +1,8 @@
+import json
+import os
+
 from flask import Flask, render_template, request, send_file, make_response
 from flaskwebgui import FlaskUI
-
-import os
-import json
-import sys
-
 
 from utils import open_image, read_image, write_docx, read_docx, open_docx, save_docx, convert_text, open_odt, write_odt
 
