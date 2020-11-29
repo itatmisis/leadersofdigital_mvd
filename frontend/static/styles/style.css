@@ -255,6 +255,17 @@ body {
     grid-auto-rows: 8fr 1fr;
 }
 
+
+p {
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+}
+
 textarea {
     border: none;
     overflow: auto;
@@ -265,8 +276,22 @@ textarea {
     resize: none;
 }
 
+.highlight {background-color: whitesmoke}
+
 
 textarea {
+    z-index: 100501;
+    height: 90%;
+    width: 99%;
+    border: 4px solid white;
+    background: rgba(0, 0, 0, 0.3);
+    font-family: Bachnschrift !important;
+    color: white;
+}
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
     z-index: 100501;
     height: 90%;
     width: 99%;

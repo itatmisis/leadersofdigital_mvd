@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05164571-d6a5-4014-aca9-377a2bbbdf67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/load_module.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res.json" beforeDir="false" afterPath="$PROJECT_DIR$/res.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound.wav" beforeDir="false" afterPath="$PROJECT_DIR$/sound.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/frontscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/frontscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +46,7 @@
       <workItem from="1606586189201" duration="65000" />
       <workItem from="1606586255034" duration="16296000" />
       <workItem from="1606614084595" duration="132000" />
-      <workItem from="1606614292560" duration="3976000" />
+      <workItem from="1606614292560" duration="10601000" />
     </task>
     <servers />
   </component>
@@ -70,11 +71,6 @@
           <url>file://$PROJECT_DIR$/converter1to3.py</url>
           <line>123</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/static/frontscript.js</url>
-          <line>54</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
