@@ -41,15 +41,14 @@ function handlerFunction(stream) {
                 .then((response) => {
                     return response;
                 }).then((response) => {
-                return response.text()
-            }).then((data) => {
-                alert(data)
-                let res = data.split(";");
-                alert(res[0])
-                document.getElementsByTagName("textarea")[0].value = res[0]
-                document.getElementsByTagName("textarea")[1].value = res[1]
-            }).catch(() => {
-            })
+                    return response.text()
+                }).then((data) => {
+
+                    let res = data.split(";");
+                    alert(res[0])
+                    document.getElementsByTagName("textarea")[0].value = res[0]
+                    document.getElementsByTagName("textarea")[1].value = res[1]
+            }).catch(() => {})
 
         }
     }
@@ -65,6 +64,7 @@ function checkStatus() {
         formData.append("file", file);
         alert();
         let url = '/upload'
+        let marker = 0;
         fetch(url, {
             method: 'POST',
             body: formData
@@ -72,15 +72,31 @@ function checkStatus() {
             .then((response) => {
                 return response
             }).then((response) => {
-            return response.text()
-        }).then((data) => {
-            alert(data)
-            let res = data.split(";");
-            alert(res[0])
-            document.getElementsByTagName("textarea")[0].value = res[0]
-            document.getElementsByTagName("textarea")[1].value = res[1]
-        }).catch(() => {
-        })
+                    alert(response.headers.get("word"))
+                    if (response.headers.get("word") == "yes") {
+                        marker = 1;
+                        return response.blob();
+                    } else {
+                        if (response.headers.get("word") == "no") {
+                            marker = 2;
+                            return response.blob();
+                        } else {
+                            return response.text();
+                        }
+                    }
+                }).then((data) => {
+                    alert(marker)
+                    if (marker == 1) {
+                        saveFile("Converted_.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", data);
+                    }
+                    if (marker == 2) {
+                        saveFile("Converted_.odt", "application/vnd.oasis.opendocument.text", data);
+                    } else {
+                        let res = data.split(";");
+                        document.getElementsByTagName("textarea")[0].value = res[0];
+                        document.getElementsByTagName("textarea")[1].value = res[1];
+                    }
+                    }).catch(() => {})
         REFRESHMENT = 0;
     }
 }
